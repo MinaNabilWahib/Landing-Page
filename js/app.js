@@ -17,6 +17,7 @@
  * Define Global Variables
  * 
 */
+// get list of section nodes using querySelectorAll storing them in a constant which will be accessed later 
 const listOfSections = document.querySelectorAll('section');
 const navigationMenu = document.querySelector('#navbar__list');
 let last_known_scroll_position = 0;
@@ -41,6 +42,7 @@ let last_known_scroll_position = 0;
 
 
 // Add class 'active' to section when near top of viewport
+//this function activate section according to its offset top position relative to the position of scrolly given by the scroll event 
 function activateClass(last_pos)
 {
     for(let i = 0; i < listOfSections.length; i++)
@@ -72,7 +74,8 @@ function activateClass(last_pos)
 }
 
 // Scroll to anchor ID using scrollTO event
-function respondToTheClick(evt)
+//this function respond to click event and search for section 
+function respondToTheClick(evt) 
  {
     console.log('An item was clicked: ' + evt.target.textContent);
     for(let i = 0; i < listOfSections.length; i++)
@@ -80,7 +83,6 @@ function respondToTheClick(evt)
         if (evt.target.textContent===listOfSections[i].dataset.nav) 
         {
             window.scrollTo(0,listOfSections[i].offsetTop-140);
-            //activateClass(listOfSections[i]);
         }
 
     }
@@ -95,6 +97,7 @@ function respondToTheClick(evt)
 */
 
 // Build menu 
+// build menu list by creating new li element and append it to ul element 
 for(let i = 0; i < listOfSections.length; i++){
     const newLi = document.createElement('li');
     newLi.className="menu__link";
