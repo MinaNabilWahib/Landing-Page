@@ -2,12 +2,17 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Idea ](#idea)
+* [Goal ](#goal)
 
-## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Idea
 
-To get started, open `js/app.js` and start building out the app's functionality
+this project is to implement dynamic webpage using javascript with manipulating dom using different event listeners and responding to this listeners .
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Goal
+
+the goals here are:
+ - to build a navigation menu dynamically as unorder list  
+ - to define which section is active and change its class to be styled as active
+ - to scroll to anchor as respond to the clicked section  
