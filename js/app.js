@@ -41,9 +41,34 @@ let last_known_scroll_position = 0;
 
 
 // Add class 'active' to section when near top of viewport
-function activateClass()
+function activateClass(last_pos)
 {
-    
+    for(let i = 0; i < listOfSections.length; i++)
+    {
+        if (i==listOfSections.length-1)
+        {
+            if (last_pos>=(listOfSections[i].offsetTop-150))
+            {
+                listOfSections[i].className='your-active-class';
+
+            }
+            else
+            {
+                listOfSections[i].className='';
+            }
+        } 
+        else
+        {   
+        if (last_pos >= (listOfSections[i].offsetTop-150) && last_pos < (listOfSections[i+1].offsetTop-150) ) 
+            {
+                listOfSections[i].className='your-active-class';
+            }
+            else
+            {
+                listOfSections[i].className='';
+            }
+        }
+    }
 }
 
 // Scroll to anchor ID using scrollTO event
@@ -82,32 +107,7 @@ navigationMenu.addEventListener('click', respondToTheClick);
 // Set sections as active
 document.addEventListener('scroll',function(){
     last_known_scroll_position=window.scrollY;
-    for(let i = 0; i < listOfSections.length; i++)
-    {
-        if (i==listOfSections.length-1)
-        {
-            if (last_known_scroll_position>=(listOfSections[i].offsetTop-150))
-            {
-                listOfSections[i].className='your-active-class';
-
-            }
-            else
-            {
-                listOfSections[i].className='';
-            }
-        } 
-        else
-        {   
-        if (last_known_scroll_position>=(listOfSections[i].offsetTop-150) && last_known_scroll_position < (listOfSections[i+1].offsetTop-150) ) 
-            {
-                listOfSections[i].className='your-active-class';
-            }
-            else
-            {
-                listOfSections[i].className='';
-            }
-        }
-    }
+    activateClass(last_known_scroll_position);
 
 });
 
