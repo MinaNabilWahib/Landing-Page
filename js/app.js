@@ -98,7 +98,8 @@ function respondToTheClick(evt)
 
 // Build menu 
 // build menu list by creating new li element and append it to ul element 
-for(let i = 0; i < listOfSections.length; i++){
+for(let i = 0; i < listOfSections.length; i++)
+{
     const newLi = document.createElement('li');
     newLi.className="menu__link";
     newLi.innerText=listOfSections[i].dataset.nav;
@@ -108,7 +109,8 @@ for(let i = 0; i < listOfSections.length; i++){
 navigationMenu.addEventListener('click', respondToTheClick);
 
 // Set sections as active
-document.addEventListener('scroll',function(){
+document.addEventListener('scroll',function()
+{
     last_known_scroll_position=window.scrollY;
     activateClass(last_known_scroll_position);
 
